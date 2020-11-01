@@ -22,7 +22,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'Twig Dump + with Laravel 6 support',
             'description' => 'Twig function d() that recursively dump passed variables only if app.debug is true',
-            'author'      => 'Ihor Chyshkala',
+            'author'      => 'IHORCHYSHKALA',
             'icon'        => 'icon-code'
         ];
     }
