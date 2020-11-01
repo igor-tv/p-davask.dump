@@ -1,4 +1,4 @@
-# Twig Dump +
+# Twig Dump + with Laravel 6 support
 OctoberCMS plugin that add Twig function d() for recursively dump passed variables only if app.debug is true
 
 ## Usage

@@ -1,6 +1,6 @@
 <?php
 
-namespace Davask\Dump;
+namespace IhorChyshkala\Dump;
 
 use Illuminate\Support\Debug\Dumper;
 use Symfony\Component\VarDumper\VarDumper as VarDumper;
@@ -20,9 +20,9 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Twig Dump +',
-            'description' => 'Add Twig function d() that recursively dump passed variables only if app.debug is true',
-            'author'      => 'Davask',
+            'name'        => 'Twig Dump + with Laravel 6 support',
+            'description' => 'Twig function d() that recursively dump passed variables only if app.debug is true',
+            'author'      => 'Ihor Chyshkala',
             'icon'        => 'icon-code'
         ];
     }
