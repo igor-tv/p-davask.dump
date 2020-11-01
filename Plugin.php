@@ -1,6 +1,6 @@
 <?php
 
-namespace IhorChyshkala\Dump;
+namespace IHORCHYSHKALA\Dump;
 
 use Illuminate\Support\Debug\Dumper;
 use Symfony\Component\VarDumper\VarDumper as VarDumper;
