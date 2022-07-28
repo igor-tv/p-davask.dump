@@ -20,7 +20,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Twig Dump + with Laravel 6 support',
+            'name'        => 'Twig Dump + all Laravel versions support',
             'description' => 'Twig function d() that recursively dump passed variables only if app.debug is true',
             'author'      => 'IHORCHYSHKALA',
             'icon'        => 'icon-code'
@@ -34,24 +34,28 @@ class Plugin extends PluginBase
      */
     public function registerMarkupTags()
     {
-        $d = function () {
-            echo '';
-        };
-        if (\Config::get('app.debug') === true) {
-            $d = function () {
-                array_map(function ($x) {
-                    if (explode(".", Laravel::VERSION)[0] < 6) {
-                        (new Dumper)->dump($x);
-                    } else {
-                        (new VarDumper)->dump($x);
-                    }
-                }, func_get_args());
-            };
-        }
-        return [
-            'functions' => [
-                'd' => $d
-            ]
+        return  [
+             'functions' => [
+                    'd' => $this->getDumpCallback(),
+             ]
         ];
     }
-}
+
+    /**
+     * Dump function
+     *
+     * @return \Closure
+     */
+    private function getDumpCallback(): \Closure
+    {
+        return static function() {
+              if (\Config::get('app.debug') !== true) {
+                   return '';
+              }
+
+              return array_map(function($x) {
+                    $dumper = version_compare(Laravel::VERSION, '6', '<') ? Dumper::class : VarDumper::class;
+                    app($dumper)->dump($x);
+                 }, funct_get_args()); 
+        }
+    }

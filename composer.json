@@ -1,0 +1,8 @@
+{
+    "name": "ihorchyshkala/dump-plugin",
+    "type": "october-plugin",
+    "description": "Twig function d() that recursively dump passed variables only if app.debug is true.",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
